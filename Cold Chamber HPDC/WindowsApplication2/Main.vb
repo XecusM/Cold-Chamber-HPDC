@@ -1,7 +1,7 @@
 ﻿Public Class Main
 
-   
-   
+
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         shapelist.Enabled = False
         shapelist.SelectedIndex = 0
@@ -490,6 +490,10 @@
 
     Private Sub CalButton_Click(sender As Object, e As EventArgs) Handles CalButton.Click
         NCavities.Nst.Items.Clear()
+        If Mat = "" Then
+            MsgBox("Part mateial must be selected")
+            Exit Sub
+        End If
         If iforce = 0 Then
             MsgBox("Machine type must be selected")
             Exit Sub
@@ -515,15 +519,15 @@
                 Call Gate_go()
         End Select
     End Sub
-    
+
     Private Sub Parallelogram_data()
         On Error GoTo Handler
         If Txt1.Text = "" Or Txt2.Text = "" Or Txt3.Text = "" Or Txt4.Text = "" Or Txt5.Text = "" Or Txt6.Text = "" Then
             MsgBox("Shape Parameters cannot leave blank !")
             Exit Sub
         End If
-        If Txt5.Text < 70 Or Txt5.Text > 90 Then
-            MsgBox("A angle must fall between 70~90 degree")
+        If Txt5.Text < 50 Or Txt5.Text > 90 Then
+            MsgBox("A angle must fall between 50~90 degree")
             Exit Sub
         End If
         If Txt4.Text > 3 Then
@@ -628,16 +632,59 @@ Handler:
         Call Gate_go()
     End Sub
 
-    
-    Private Sub Txt1_TextChanged(sender As Object, e As EventArgs) Handles Txt1.TextChanged
+    Private Sub MatList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MatList.SelectedIndexChanged
+        Mat = MatList.Text
+        Select Case Mat
+            Case "AlSi12 (230)"
+                DieHardness.Text = "48-50 HRC"
+                Tf = 600
+                DTemp.Items.Clear()
+                iTemp.Items.Clear()
+                DTemp.Text = "Select Temperature"
+                iTemp.Text = "Select Temperature"
+                DTemp.Items.Insert(0, 260)
+                DTemp.Items.Insert(1, 280)
+                DTemp.Items.Insert(2, 300)
+                DTemp.Items.Insert(3, 320)
+                DTemp.Items.Insert(4, 340)
+                iTemp.Items.Insert(0, 600)
+                iTemp.Items.Insert(1, 620)
+                iTemp.Items.Insert(2, 650)
+                iTemp.Items.Insert(3, 680)
+                Ti = 0
+                Td = 0
+            Case "ZnAl4 (ZA3)"
+                DieHardness.Text = "52-55 HRC"
+                Tf = 382
+                DTemp.Items.Clear()
+                iTemp.Items.Clear()
+                DTemp.Text = "Select Temperature"
+                iTemp.Text = "Select Temperature"
+                DTemp.Items.Insert(0, 205)
+                DTemp.Items.Insert(1, 210)
+                DTemp.Items.Insert(2, 215)
+                DTemp.Items.Insert(3, 220)
+                DTemp.Items.Insert(4, 225)
+                DTemp.Items.Insert(4, 230)
+                iTemp.Items.Insert(0, 405)
+                iTemp.Items.Insert(1, 410)
+                iTemp.Items.Insert(2, 415)
+                iTemp.Items.Insert(3, 420)
+                Ti = 0
+                Td = 0
+        End Select
 
     End Sub
 
-    Private Sub MoTemp_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MoTemp.SelectedIndexChanged
-        Td = MoTemp.Text
+    Private Sub DTemp_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DTemp.SelectedIndexChanged
+        Td = DTemp.SelectedItem
     End Sub
 
-    Private Sub MeTemp_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MeTemp.SelectedIndexChanged
-        Ti = MeTemp.Text
+    Private Sub iTemp_SelectedIndexChanged(sender As Object, e As EventArgs) Handles iTemp.SelectedIndexChanged
+        Ti = iTemp.SelectedItem
+    End Sub
+
+    Private Sub ShapePic_Click(sender As Object, e As EventArgs) Handles ShapePic.Click
+
     End Sub
 End Class

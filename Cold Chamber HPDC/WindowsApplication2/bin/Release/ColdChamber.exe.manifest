@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ColdChamber.exe" size="690176">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ColdChamber.exe" size="711168">
       <assemblyIdentity name="ColdChamber" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yP1yfUX7xhaXh5A1GnOt6GBZ/rsWWjxq6O48xSBcCFg=</dsig:DigestValue>
+        <dsig:DigestValue>I7MmzoCAP22lZLoRJ/JQA1EEm0wZcHq4YFosPbIk+zc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,22 +62,22 @@
       <dsig:DigestValue>5A+3ty5k/BlN6+uD2ZBco+8YJmJmadx8+QzArKgtPuw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ColdChamber.pdb" size="85504">
+  <file name="ColdChamber.pdb" size="91648">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>d8+w2Xv7wG0RCb2pxlmGyXWGPzRgR684FSSnDdTs+dY=</dsig:DigestValue>
+      <dsig:DigestValue>/zlLAyXeEhy/M722cyIP4HbN9RTqbYtEaBflOkmeGD4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ColdChamber.xml" size="10905">
+  <file name="ColdChamber.xml" size="11860">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>WJ4S78QOjxHKVvhAttClwFMQYrMCGsLfY/Ti8Ehkyww=</dsig:DigestValue>
+      <dsig:DigestValue>CPk8lPbRSHeGyj/i/WSq+05Zd4EcCw+Sp62wdwjsCZk=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

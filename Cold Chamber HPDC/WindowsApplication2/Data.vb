@@ -344,6 +344,14 @@
     ''' <summary>
     ''' Helpful parameter
     ''' </summary>
+    Public Ig As Decimal
+    ''' <summary>
+    ''' Helpful parameter
+    ''' </summary>
+    Public Jg As Decimal
+    ''' <summary>
+    ''' Helpful parameter
+    ''' </summary>
     Public f1 As Decimal
     ''' <summary>
     ''' Helpful parameter
@@ -365,6 +373,10 @@
     ''' Objective Function
     ''' </summary>
     Public fn As Decimal
+    ''' <summary>
+    ''' Part Material
+    ''' </summary>
+    Public Mat As String
     Public Sub Parallelogram_Calc()
         vol = (W * L * H) - ((W - 2 * T) * (L - 2 * T) * (H - T))
         AreaProj = W * L
@@ -458,24 +470,47 @@
         NCavities.ShowDialog()
     End Sub
     Public Sub S_Set()
-        If T < 0.75 Then
-            S = 0.05
-        Else
-            If T >= 0.75 And T < 1.25 Then
-                S = 0.15
-            Else
-                If T >= 1.25 And T < 2 Then
-                    S = 0.25
+        Select Case Mat
+            Case "AlSi12 (230)"
+                If T < 0.75 Then
+                    S = 0.05
                 Else
-                    If T >= 2 And T <= 3.15 Then
-                        S = 0.35
+                    If T >= 0.75 And T < 1.25 Then
+                        S = 0.15
                     Else
-                        S = 0.5
-                        Exit Sub
+                        If T >= 1.25 And T < 2 Then
+                            S = 0.25
+                        Else
+                            If T >= 2 And T <= 3.15 Then
+                                S = 0.35
+                            Else
+                                S = 0.5
+                                Exit Sub
+                            End If
+                        End If
                     End If
                 End If
-            End If
-        End If
+            Case "ZnAl4 (ZA3)"
+                If T < 0.75 Then
+                    S = 0.1
+                Else
+                    If T >= 0.75 And T < 1.25 Then
+                        S = 0.15
+                    Else
+                        If T >= 1.25 And T < 2 Then
+                            S = 0.225
+                        Else
+                            If T >= 2 And T <= 3.15 Then
+                                S = 0.275
+                            Else
+                                S = 0.35
+                                Exit Sub
+                            End If
+                        End If
+                    End If
+                End If
+        End Select
+
     End Sub
     Public Sub volfl_set()
         If T < 0.9 Then
@@ -503,74 +538,132 @@
     End Sub
     Public Sub Intial_Cond()
         Call S_Set()
-        Vgate = 1500 * 25.4 / 1000
-        K = 0.0346
-        Z = 4.8
-        'Ti = 650
-        'Td = 280
-        Tf = 570
-        Cd(1) = 0.45
-        Cd(2) = 0.5
-        'Pm = 800 * (10 ^ 5) / ((10 ^ 6) * 1000)
-        OA = 2
-        OB = 5
-        OC = 0.6
-        OV = 0.15
-        Tg(1) = 0.8
-        Tg(2) = 3
-        pd = 2.76
-        Df = 35
-        Bg = 1.5
+        Select Case Mat
+            Case "AlSi12 (230)"
+                Vgate = 1500 * 25.4 / 1000
+                K = 0.0346
+                Z = 4.8
+                Cd(1) = 0.45
+                Cd(2) = 0.5
+                'Pm = 800 * (10 ^ 5) / ((10 ^ 6) * 1000)
+                OA = 2
+                OB = 5
+                OC = 0.6
+                OV = 0.15
+                Tg(1) = 0.8
+                Tg(2) = 3
+                pd = 2.76
+                Df = 35
+                Bg = 1.5
+            Case "ZnAl4 (ZA3)"
+                Vgate = 1850 * 25.4 / 1000
+                K = 0.0346
+                Z = 2.5
+                Cd(1) = 0.45
+                Cd(2) = 0.5
+                OA = 2
+                OB = 5
+                OC = 0.6
+                OV = 0.15
+                Tg(1) = 0.2
+                Tg(2) = 3
+                pd = 6.7
+                Df = 35
+                Bg = 1.5
+        End Select
         Call volfl_set()
     End Sub
     Public Sub Gate_Area()
-        Agate = (vol + volfl) / ((Vgate * 1000) * tfill)
-        Hg = Math.Max(0.8, 750 / ((Vgate ^ 1.71) * (pd * (1000))))
-        Wgate = Agate / Hg
-        Do Until (Vgate ^ 1.71) * Hg * (pd * (1000)) >= 750 And Hg >= 0.8 And Wgate < 0.95 * W
-            If Wgate >= 0.95 * W Then
-                Hg += 0.1
+        Select Case Mat
+            Case "AlSi12 (230)"
+                Agate = (vol + volfl) / ((Vgate * 1000) * tfill)
+                Hg = Math.Max(0.8, 400 / ((Vgate ^ 1.71) * (pd * (1000))))
                 Wgate = Agate / Hg
-            Else
-                Hg -= 0.1
+                Do Until (Vgate ^ 1.71) * Hg * (pd * (1000)) >= 400 And Hg >= 0.8 And Wgate < (W - (Hg * 0.2))
+                    If Wgate >= (W - (Hg * 0.2)) Then
+                        Hg += 0.1
+                        Wgate = Agate / Hg
+                    Else
+                        Hg -= 0.1
+                        Wgate = Agate / Hg
+                    End If
+                Loop
+                Av = (Agate * volfl) / (vol + volfl)
+                Gv = Math.Min(Av / OC, W - 4.5)
+                OC = Av / Gv
+                Do Until Gv < W
+                    OC += 0.1
+                    Gv = Av / OC
+                Loop
+                Wv = Gv + 4.5
+                Hv = 2
+                Lv = (volfl / (Wv * Hv)) + 0.5 * Hv * Iv
+                Iv = Math.Tan(60 * Math.PI / 180)
+                Do Until Hv / Lv > 0.25
+                    Hv += 0.1
+                    Lv = (volfl / (Wv * Hv)) + 0.5 * Hv * Iv
+                Loop
+            Case "ZnAl4 (ZA3)"
+                Agate = (vol + volfl) / ((Vgate * 1000) * tfill)
+                Hg = Math.Max(0.2, 475 / ((Vgate ^ 1.71) * (pd * (1000))))
                 Wgate = Agate / Hg
-            End If
-        Loop
-        Av = (Agate * volfl) / (vol + volfl)
-        Gv = Math.Min(Av / OC, W - 4.5)
-        OC = Av / Gv
-        Do Until Gv < W
-            OC += 0.1
-            Gv = Av / OC
-        Loop
-        Wv = Gv + 4.5
-        Hv = 2
-        Lv = (volfl / (Wv * Hv)) + 0.5 * Hv * Iv
-        Iv = Math.Tan(60 * Math.PI / 180)
-        Do Until Hv / Lv > 0.25
-            Hv += 0.1
-            Lv = (volfl / (Wv * Hv)) + 0.5 * Hv * Iv
-        Loop
+                Do Until (Vgate ^ 1.71) * Hg * (pd * (1000)) >= 475 And Hg >= 0.2 And Wgate < (W - (Hg * 0.2))
+                    If Wgate >= (W - (Hg * 0.2)) Then
+                        Hg += 0.1
+                        Wgate = Agate / Hg
+                    Else
+                        Hg -= 0.1
+                        Wgate = Agate / Hg
+                    End If
+                Loop
+                Av = (Agate * volfl) / (vol + volfl)
+                Gv = Math.Min(Av / OC, W - 4.5)
+                OC = Av / Gv
+                Do Until Gv < W
+                    OC += 0.1
+                    Gv = Av / OC
+                Loop
+                Wv = Gv + 4.5
+                Hv = 2
+                Lv = (volfl / (Wv * Hv)) + 0.5 * Hv * Iv
+                Iv = Math.Tan(60 * Math.PI / 180)
+                Do Until Hv / Lv > 0.25
+                    Hv += 0.1
+                    Lv = (volfl / (Wv * Hv)) + 0.5 * Hv * Iv
+                Loop
+        End Select
         Call Runner_Area()
     End Sub
     Public Sub Runner_Area()
-        If Df >= 10 And Df <= 35 Then
-            Ar = 1.3 * Agate
-        Else
-            If Df > 35 And Df <= 45 Then
-                Ar = 1.4 * Agate
-            Else
-                MsgBox("Flow Angle out of range!")
-                Exit Sub
-            End If
-        End If
-        'Hr = (Ar / 2) ^ 0.5
-        Hr = Hg + 1
-        Wr = Ar / Hr
-        Do Until Wr <= Hr * 3 And Wr >= Hr And Wr < Wgate
-            Hr += 0.1
-            Wr = Ar / Hr
-        Loop
+        Select Case Mat
+            Case "AlSi12 (230)"
+                If Df >= 10 And Df <= 35 Then
+                    Ar = 1.3 * Agate
+                Else
+                    If Df > 35 And Df <= 45 Then
+                        Ar = 1.4 * Agate
+                    Else
+                        MsgBox("Flow Angle out of range!")
+                        Exit Sub
+                    End If
+                End If
+                'Hr = (Ar / 2) ^ 0.5
+                Hr = Hg + 1
+                Wr = Ar / Hr
+                Do Until Wr <= Hr * 3 And Wr >= Hr And Wr < Wgate
+                    Hr += 0.1
+                    Wr = Ar / Hr
+                Loop
+            Case "ZnAl4 (ZA3)"
+                Ar = 1.1 * Agate
+                'Hr = (Ar / 2) ^ 0.5
+                Hr = Hg + 1
+                Wr = Ar / Hr
+                Do Until Hr >= Hg And Wr <= Hr * 3 And Wr < Wgate
+                    Hr += 0.1
+                    Wr = Ar / Hr
+                Loop
+        End Select
         Call Gate_Sections()
     End Sub
     Public Sub Gate_Sections()
@@ -610,29 +703,56 @@
         Call Optimization_Technique()
     End Sub
     Public Sub Optimization_Technique()
-        GSS = 1
-        OSS = 1
-        OPS(1, 1) = 5.75 - 0.00009 * W - 0.00953 * L - 0.0195 * H + 0.208 * T - 0.1313 * A - 0.327 * GSS - 0.456 * OSS - 0.000012 * W * W + 0.000017 * L * L + 0.000106 * H * H + 0.2283 * T * T + 0.000946 * A * A - 0.0934 * GSS * GSS + 0.1598 * OSS * OSS + 0.000028 * W * L - 0.000068 * W * H + 0.00177 * W * T + 0.000031 * W * A - 0.00003 * W * GSS + 0.00008 * W * OSS + 0.000058 * L * H - 0.002092 * L * T - 0.000031 * L * A + 0.00077 * L * GSS + 0.00072 * L * OSS - 0.00148 * H * T + 0.000064 * H * A + 0.00179 * H * GSS + 0.00015 * H * OSS + 0.00053 * T * A + 0.002 * T * GSS + 0.0191 * T * OSS + 0.00136 * A * GSS + 0.00419 * A * OSS + 0.012 * GSS * OSS
-        OPS(1, 2) = GSS
-        OPS(1, 3) = OSS
-        OSS = OSS - 0.01
-        Do Until GSS <= -1
-            Do Until OSS <= -1
-                OPS(2, 1) = 5.75 - 0.00009 * W - 0.00953 * L - 0.0195 * H + 0.208 * T - 0.1313 * A - 0.327 * GSS - 0.456 * OSS - 0.000012 * W * W + 0.000017 * L * L + 0.000106 * H * H + 0.2283 * T * T + 0.000946 * A * A - 0.0934 * GSS * GSS + 0.1598 * OSS * OSS + 0.000028 * W * L - 0.000068 * W * H + 0.00177 * W * T + 0.000031 * W * A - 0.00003 * W * GSS + 0.00008 * W * OSS + 0.000058 * L * H - 0.002092 * L * T - 0.000031 * L * A + 0.00077 * L * GSS + 0.00072 * L * OSS - 0.00148 * H * T + 0.000064 * H * A + 0.00179 * H * GSS + 0.00015 * H * OSS + 0.00053 * T * A + 0.002 * T * GSS + 0.0191 * T * OSS + 0.00136 * A * GSS + 0.00419 * A * OSS + 0.012 * GSS * OSS
-                OPS(2, 2) = GSS
-                OPS(2, 3) = OSS
-                If OPS(2, 1) <= OPS(1, 1) Then
-                    OPS(1, 1) = OPS(2, 1)
-                    OPS(1, 2) = OPS(2, 2)
-                    OPS(1, 3) = OPS(2, 3)
-                End If
+        Select Case Mat
+            Case "AlSi12 (230)"
+                GSS = 1
+                OSS = 1
+                OPS(1, 1) = 5.75 - 0.00009 * W - 0.00953 * L - 0.0195 * H + 0.208 * T - 0.1313 * A - 0.327 * GSS - 0.456 * OSS - 0.000012 * W * W + 0.000017 * L * L + 0.000106 * H * H + 0.2283 * T * T + 0.000946 * A * A - 0.0934 * GSS * GSS + 0.1598 * OSS * OSS + 0.000028 * W * L - 0.000068 * W * H + 0.00177 * W * T + 0.000031 * W * A - 0.00003 * W * GSS + 0.00008 * W * OSS + 0.000058 * L * H - 0.002092 * L * T - 0.000031 * L * A + 0.00077 * L * GSS + 0.00072 * L * OSS - 0.00148 * H * T + 0.000064 * H * A + 0.00179 * H * GSS + 0.00015 * H * OSS + 0.00053 * T * A + 0.002 * T * GSS + 0.0191 * T * OSS + 0.00136 * A * GSS + 0.00419 * A * OSS + 0.012 * GSS * OSS
+                OPS(1, 2) = GSS
+                OPS(1, 3) = OSS
                 OSS = OSS - 0.01
-            Loop
-            GSS = GSS - 0.01
-        Loop
-        GSS = OPS(1, 2)
-        OSS = OPS(1, 3)
-        fn = OPS(1, 1)
+                Do Until GSS <= -1
+                    Do Until OSS <= -1
+                        OPS(2, 1) = 5.75 - 0.00009 * W - 0.00953 * L - 0.0195 * H + 0.208 * T - 0.1313 * A - 0.327 * GSS - 0.456 * OSS - 0.000012 * W * W + 0.000017 * L * L + 0.000106 * H * H + 0.2283 * T * T + 0.000946 * A * A - 0.0934 * GSS * GSS + 0.1598 * OSS * OSS + 0.000028 * W * L - 0.000068 * W * H + 0.00177 * W * T + 0.000031 * W * A - 0.00003 * W * GSS + 0.00008 * W * OSS + 0.000058 * L * H - 0.002092 * L * T - 0.000031 * L * A + 0.00077 * L * GSS + 0.00072 * L * OSS - 0.00148 * H * T + 0.000064 * H * A + 0.00179 * H * GSS + 0.00015 * H * OSS + 0.00053 * T * A + 0.002 * T * GSS + 0.0191 * T * OSS + 0.00136 * A * GSS + 0.00419 * A * OSS + 0.012 * GSS * OSS
+                        OPS(2, 2) = GSS
+                        OPS(2, 3) = OSS
+                        If OPS(2, 1) <= OPS(1, 1) Then
+                            OPS(1, 1) = OPS(2, 1)
+                            OPS(1, 2) = OPS(2, 2)
+                            OPS(1, 3) = OPS(2, 3)
+                        End If
+                        OSS = OSS - 0.01
+                    Loop
+                    GSS = GSS - 0.01
+                Loop
+                GSS = OPS(1, 2)
+                OSS = OPS(1, 3)
+                fn = OPS(1, 1)
+            Case "ZnAl4 (ZA3)"
+                GSS = 1
+                OSS = 1
+                OPS(1, 1) = -0.061 - 0.00028 * W - 0.00306 * L - 0.0012 * H + 0.204 * T + 0.009 * A - 0.108 * GSS - 0.079 * OSS + 0.000001 * W * W + 0.000012 * L * L + 0.000015 * H * H + 0.1796 * T * T - 0.000073 * A * A + 0.0049 * GSS * GSS - 0.0178 * OSS * OSS - 0.000002 * W * L - 0.000005 * W * H + 0.000665 * W * T - 0.000001 * W * A + 0.000106 * W * GSS + 0.000053 * W * OSS + 0.000034 * L * H - 0.00252 * L * T + 0.000002 * L * A + 0.000059 * L * GSS + 0.00007 * L * OSS - 0.00536 * H * T + 0.000005 * H * A + 0.00026 * H * GSS + 0.00057 * H * OSS + 0.00024 * T * A + 0.0111 * T * GSS - 0.0032 * T * OSS + 0.00071 * A * GSS + 0.00049 * A * OSS + 0.005 * GSS * OSS
+                OPS(1, 2) = GSS
+                OPS(1, 3) = OSS
+                OSS = OSS - 0.01
+                Do Until GSS <= -1
+                    Do Until OSS <= -1
+                        OPS(2, 1) = -0.061 - 0.00028 * W - 0.00306 * L - 0.0012 * H + 0.204 * T + 0.009 * A - 0.108 * GSS - 0.079 * OSS + 0.000001 * W * W + 0.000012 * L * L + 0.000015 * H * H + 0.1796 * T * T - 0.000073 * A * A + 0.0049 * GSS * GSS - 0.0178 * OSS * OSS - 0.000002 * W * L - 0.000005 * W * H + 0.000665 * W * T - 0.000001 * W * A + 0.000106 * W * GSS + 0.000053 * W * OSS + 0.000034 * L * H - 0.00252 * L * T + 0.000002 * L * A + 0.000059 * L * GSS + 0.00007 * L * OSS - 0.00536 * H * T + 0.000005 * H * A + 0.00026 * H * GSS + 0.00057 * H * OSS + 0.00024 * T * A + 0.0111 * T * GSS - 0.0032 * T * OSS + 0.00071 * A * GSS + 0.00049 * A * OSS + 0.005 * GSS * OSS
+                        OPS(2, 2) = GSS
+                        OPS(2, 3) = OSS
+                        If OPS(2, 1) <= OPS(1, 1) Then
+                            OPS(1, 1) = OPS(2, 1)
+                            OPS(1, 2) = OPS(2, 2)
+                            OPS(1, 3) = OPS(2, 3)
+                        End If
+                        OSS = OSS - 0.01
+                    Loop
+                    GSS = GSS - 0.01
+                Loop
+                GSS = OPS(1, 2)
+                OSS = OPS(1, 3)
+                fn = OPS(1, 1)
+        End Select
     End Sub
     Public Sub Gate_go()
         MsgBox("Error!")

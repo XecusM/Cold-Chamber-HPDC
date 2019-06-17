@@ -122,6 +122,8 @@
         Doutput.GSST.Text = GSS
         Doutput.OSST.Text = OSS
         Doutput.PoroT.Text = fn
+        Doutput.MatText.Text = Mat
+        Doutput.DieHardness.Text = Main.DieHardness.Text
         Doutput.ShowDialog()
         Me.Close()
     End Sub

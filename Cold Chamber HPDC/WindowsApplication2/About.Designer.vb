@@ -37,7 +37,7 @@ Partial Class About
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(208, 103)
+        Me.GroupBox1.Size = New System.Drawing.Size(224, 103)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Supervised By"
@@ -46,7 +46,7 @@ Partial Class About
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(15, 63)
+        Me.Label5.Location = New System.Drawing.Point(6, 64)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(136, 14)
         Me.Label5.TabIndex = 4
@@ -56,11 +56,11 @@ Partial Class About
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(15, 31)
+        Me.Label2.Location = New System.Drawing.Point(6, 32)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(180, 16)
+        Me.Label2.Size = New System.Drawing.Size(206, 16)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Prof. Mohamed H. Gadallah"
+        Me.Label2.Text = "Prof. Dr. Abd El-Halim El-Habak"
         '
         'Label6
         '
@@ -94,7 +94,7 @@ Partial Class About
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(227, 213)
+        Me.ClientSize = New System.Drawing.Size(248, 210)
         Me.ControlBox = False
         Me.Controls.Add(Me.Closebutton)
         Me.Controls.Add(Me.Label7)

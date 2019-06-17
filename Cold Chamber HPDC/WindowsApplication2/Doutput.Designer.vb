@@ -163,6 +163,15 @@ Partial Class Doutput
         Me.Label54 = New System.Windows.Forms.Label()
         Me.Label53 = New System.Windows.Forms.Label()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.MatText = New System.Windows.Forms.Label()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.DieHardness = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Label56 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -179,6 +188,7 @@ Partial Class Doutput
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -1172,7 +1182,7 @@ Partial Class Doutput
         Me.GroupBox5.Controls.Add(Me.Label34)
         Me.GroupBox5.Controls.Add(Me.PDT)
         Me.GroupBox5.Controls.Add(Me.Label33)
-        Me.GroupBox5.Location = New System.Drawing.Point(574, 13)
+        Me.GroupBox5.Location = New System.Drawing.Point(764, 13)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(222, 189)
         Me.GroupBox5.TabIndex = 4
@@ -1265,7 +1275,6 @@ Partial Class Doutput
         '
         'ExExp
         '
-        Me.ExExp.Enabled = False
         Me.ExExp.Location = New System.Drawing.Point(1088, 626)
         Me.ExExp.Name = "ExExp"
         Me.ExExp.Size = New System.Drawing.Size(75, 23)
@@ -1451,7 +1460,7 @@ Partial Class Doutput
         Me.GroupBox7.Controls.Add(Me.Label55)
         Me.GroupBox7.Controls.Add(Me.TFmax)
         Me.GroupBox7.Controls.Add(Me.Label51)
-        Me.GroupBox7.Location = New System.Drawing.Point(802, 13)
+        Me.GroupBox7.Location = New System.Drawing.Point(997, 13)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(206, 189)
         Me.GroupBox7.TabIndex = 7
@@ -1550,6 +1559,97 @@ Partial Class Doutput
         Me.PictureBox7.TabIndex = 0
         Me.PictureBox7.TabStop = False
         '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.Label61)
+        Me.GroupBox9.Controls.Add(Me.Label60)
+        Me.GroupBox9.Controls.Add(Me.MatText)
+        Me.GroupBox9.Controls.Add(Me.Label59)
+        Me.GroupBox9.Controls.Add(Me.DieHardness)
+        Me.GroupBox9.Controls.Add(Me.Label58)
+        Me.GroupBox9.Controls.Add(Me.Label57)
+        Me.GroupBox9.Controls.Add(Me.Label56)
+        Me.GroupBox9.Location = New System.Drawing.Point(574, 13)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(184, 189)
+        Me.GroupBox9.TabIndex = 9
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Material Parameters"
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(42, 83)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(113, 13)
+        Me.Label61.TabIndex = 7
+        Me.Label61.Text = "X40CrMoV51 (1.2344)"
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.Label60.Location = New System.Drawing.Point(6, 69)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(87, 13)
+        Me.Label60.TabIndex = 6
+        Me.Label60.Text = "Mold Material:"
+        '
+        'MatText
+        '
+        Me.MatText.AutoSize = True
+        Me.MatText.Location = New System.Drawing.Point(45, 165)
+        Me.MatText.Name = "MatText"
+        Me.MatText.Size = New System.Drawing.Size(0, 13)
+        Me.MatText.TabIndex = 5
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.Label59.Location = New System.Drawing.Point(6, 148)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(84, 13)
+        Me.Label59.TabIndex = 4
+        Me.Label59.Text = "Part Material:"
+        '
+        'DieHardness
+        '
+        Me.DieHardness.AutoSize = True
+        Me.DieHardness.Location = New System.Drawing.Point(42, 123)
+        Me.DieHardness.Name = "DieHardness"
+        Me.DieHardness.Size = New System.Drawing.Size(0, 13)
+        Me.DieHardness.TabIndex = 3
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.Label58.Location = New System.Drawing.Point(6, 107)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(93, 13)
+        Me.Label58.TabIndex = 2
+        Me.Label58.Text = "Mold Hardness:"
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Location = New System.Drawing.Point(42, 41)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(131, 13)
+        Me.Label57.TabIndex = 1
+        Me.Label57.Text = "Cold Chamber Die Casting"
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.Label56.Location = New System.Drawing.Point(6, 25)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(104, 13)
+        Me.Label56.TabIndex = 0
+        Me.Label56.Text = "Die Casting Type:"
+        '
         'Doutput
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1557,6 +1657,7 @@ Partial Class Doutput
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1215, 682)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.GroupBox8)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
@@ -1596,6 +1697,8 @@ Partial Class Doutput
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1740,4 +1843,13 @@ Partial Class Doutput
     Friend WithEvents Vwarn As Label
     Friend WithEvents Label55 As Label
     Friend WithEvents PoroT As TextBox
+    Friend WithEvents GroupBox9 As GroupBox
+    Friend WithEvents Label57 As Label
+    Friend WithEvents Label56 As Label
+    Friend WithEvents DieHardness As Label
+    Friend WithEvents Label58 As Label
+    Friend WithEvents MatText As Label
+    Friend WithEvents Label59 As Label
+    Friend WithEvents Label61 As Label
+    Friend WithEvents Label60 As Label
 End Class

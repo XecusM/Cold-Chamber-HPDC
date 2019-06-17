@@ -185,18 +185,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\01-Parallelogram.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\02-Cylinder.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\03-Hexagonal.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\04-Arc.JPG" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Arc.JPG" />
   </ItemGroup>
   <ItemGroup>
@@ -204,9 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Hexagonal.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Parallelogram.JPG" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OverFlow.jpg" />

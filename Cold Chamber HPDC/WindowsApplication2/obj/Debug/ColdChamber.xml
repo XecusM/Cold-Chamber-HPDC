@@ -6,6 +6,87 @@ ColdChamber
 </name>
 </assembly>
 <members>
+<member name="T:ColdChamber.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Arc">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Cylinder">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Gate1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Gate2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Gate3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Hexagonal">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.OverFlow">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.OverFlow1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.OverFlowC">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Parallelogram">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Position">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Runner">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ColdChamber.My.Resources.Resources.Runners">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="F:ColdChamber.data.Ar">
  <summary>
  Runner Cross Section Area
@@ -413,6 +494,16 @@ ColdChamber
  </summary>
  <remarks></remarks>
 </member>
+<member name="F:ColdChamber.data.Ig">
+ <summary>
+ Helpful parameter
+ </summary>
+</member>
+<member name="F:ColdChamber.data.Jg">
+ <summary>
+ Helpful parameter
+ </summary>
+</member>
 <member name="F:ColdChamber.data.f1">
  <summary>
  Helpful parameter
@@ -443,86 +534,10 @@ ColdChamber
  Objective Function
  </summary>
 </member>
-<member name="T:ColdChamber.My.Resources.Resources">
-<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.ResourceManager">
-<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Culture">
-<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Arc">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Cylinder">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Gate1">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Gate2">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Gate3">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Hexagonal">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.OverFlow">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.OverFlow1">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.OverFlowC">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Parallelogram">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Position">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Runner">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:ColdChamber.My.Resources.Resources.Runners">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
+<member name="F:ColdChamber.data.Mat">
+ <summary>
+ Part Material
+ </summary>
 </member>
 </members>
 </doc>
