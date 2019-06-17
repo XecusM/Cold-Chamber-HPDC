@@ -37,7 +37,7 @@ Partial Class About
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(195, 109)
+        Me.GroupBox1.Size = New System.Drawing.Size(208, 103)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Supervised By"
@@ -46,7 +46,7 @@ Partial Class About
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(6, 68)
+        Me.Label5.Location = New System.Drawing.Point(15, 63)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(136, 14)
         Me.Label5.TabIndex = 4
@@ -56,7 +56,7 @@ Partial Class About
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(6, 32)
+        Me.Label2.Location = New System.Drawing.Point(15, 31)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(180, 16)
         Me.Label2.TabIndex = 1
@@ -65,7 +65,7 @@ Partial Class About
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(76, 133)
+        Me.Label6.Location = New System.Drawing.Point(79, 128)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(66, 13)
         Me.Label6.TabIndex = 1
@@ -74,7 +74,7 @@ Partial Class About
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(35, 156)
+        Me.Label7.Location = New System.Drawing.Point(38, 153)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(160, 13)
         Me.Label7.TabIndex = 2
@@ -82,7 +82,7 @@ Partial Class About
         '
         'Closebutton
         '
-        Me.Closebutton.Location = New System.Drawing.Point(79, 184)
+        Me.Closebutton.Location = New System.Drawing.Point(70, 182)
         Me.Closebutton.Name = "Closebutton"
         Me.Closebutton.Size = New System.Drawing.Size(75, 23)
         Me.Closebutton.TabIndex = 3
@@ -94,7 +94,7 @@ Partial Class About
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(223, 225)
+        Me.ClientSize = New System.Drawing.Size(227, 213)
         Me.ControlBox = False
         Me.Controls.Add(Me.Closebutton)
         Me.Controls.Add(Me.Label7)

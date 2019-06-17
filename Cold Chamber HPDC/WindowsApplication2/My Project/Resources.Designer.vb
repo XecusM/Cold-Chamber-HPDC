@@ -143,9 +143,29 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property OverFlowC() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("OverFlowC", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Parallelogram() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Parallelogram", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Position() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Position", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

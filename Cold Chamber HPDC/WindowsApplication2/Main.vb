@@ -489,8 +489,17 @@
 
 
     Private Sub CalButton_Click(sender As Object, e As EventArgs) Handles CalButton.Click
+        NCavities.Nst.Items.Clear()
         If iforce = 0 Then
             MsgBox("Machine type must be selected")
+            Exit Sub
+        End If
+        If Ti = 0 Then
+            MsgBox("Metal temperature must be selected")
+            Exit Sub
+        End If
+        If Td = 0 Then
+            MsgBox("Mold temperature must be selected")
             Exit Sub
         End If
         Select Case shapelist.Text
@@ -513,8 +522,8 @@
             MsgBox("Shape Parameters cannot leave blank !")
             Exit Sub
         End If
-        If Txt5.Text <= 0 Or Txt5.Text >= 180 Then
-            MsgBox("A angle must fall between 0~180 degree")
+        If Txt5.Text < 70 Or Txt5.Text > 90 Then
+            MsgBox("A angle must fall between 70~90 degree")
             Exit Sub
         End If
         If Txt4.Text > 3 Then
@@ -622,5 +631,13 @@ Handler:
     
     Private Sub Txt1_TextChanged(sender As Object, e As EventArgs) Handles Txt1.TextChanged
 
+    End Sub
+
+    Private Sub MoTemp_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MoTemp.SelectedIndexChanged
+        Td = MoTemp.Text
+    End Sub
+
+    Private Sub MeTemp_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MeTemp.SelectedIndexChanged
+        Ti = MeTemp.Text
     End Sub
 End Class

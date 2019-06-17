@@ -99,6 +99,7 @@ Partial Class Doutput
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Vwarn = New System.Windows.Forms.Label()
         Me.VentW = New System.Windows.Forms.TextBox()
         Me.Label50 = New System.Windows.Forms.Label()
         Me.OverGh = New System.Windows.Forms.TextBox()
@@ -152,8 +153,16 @@ Partial Class Doutput
         Me.Label45 = New System.Windows.Forms.Label()
         Me.ShapePic = New System.Windows.Forms.PictureBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.PoroT = New System.Windows.Forms.TextBox()
+        Me.Label55 = New System.Windows.Forms.Label()
         Me.TFmax = New System.Windows.Forms.TextBox()
         Me.Label51 = New System.Windows.Forms.Label()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.OSST = New System.Windows.Forms.TextBox()
+        Me.GSST = New System.Windows.Forms.TextBox()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,6 +177,8 @@ Partial Class Doutput
         Me.GroupBox6.SuspendLayout()
         CType(Me.ShapePic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox7.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -779,7 +790,7 @@ Partial Class Doutput
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(15, 43)
+        Me.Label6.Location = New System.Drawing.Point(15, 30)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(100, 13)
         Me.Label6.TabIndex = 0
@@ -801,7 +812,7 @@ Partial Class Doutput
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Location = New System.Drawing.Point(485, 208)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(342, 466)
+        Me.GroupBox2.Size = New System.Drawing.Size(342, 311)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Runner Dimensions"
@@ -809,7 +820,7 @@ Partial Class Doutput
         'CN
         '
         Me.CN.Enabled = False
-        Me.CN.Location = New System.Drawing.Point(32, 319)
+        Me.CN.Location = New System.Drawing.Point(32, 260)
         Me.CN.Name = "CN"
         Me.CN.Size = New System.Drawing.Size(60, 20)
         Me.CN.TabIndex = 10
@@ -817,7 +828,7 @@ Partial Class Doutput
         'Label32
         '
         Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(15, 298)
+        Me.Label32.Location = New System.Drawing.Point(15, 239)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(98, 13)
         Me.Label32.TabIndex = 9
@@ -826,7 +837,7 @@ Partial Class Doutput
         'ArT
         '
         Me.ArT.Enabled = False
-        Me.ArT.Location = New System.Drawing.Point(32, 257)
+        Me.ArT.Location = New System.Drawing.Point(32, 206)
         Me.ArT.Name = "ArT"
         Me.ArT.Size = New System.Drawing.Size(60, 20)
         Me.ArT.TabIndex = 8
@@ -834,7 +845,7 @@ Partial Class Doutput
         'HrT
         '
         Me.HrT.Enabled = False
-        Me.HrT.Location = New System.Drawing.Point(32, 197)
+        Me.HrT.Location = New System.Drawing.Point(32, 152)
         Me.HrT.Name = "HrT"
         Me.HrT.Size = New System.Drawing.Size(60, 20)
         Me.HrT.TabIndex = 7
@@ -842,7 +853,7 @@ Partial Class Doutput
         'WrT
         '
         Me.WrT.Enabled = False
-        Me.WrT.Location = New System.Drawing.Point(32, 134)
+        Me.WrT.Location = New System.Drawing.Point(32, 99)
         Me.WrT.Name = "WrT"
         Me.WrT.Size = New System.Drawing.Size(60, 20)
         Me.WrT.TabIndex = 6
@@ -850,7 +861,7 @@ Partial Class Doutput
         'DsT
         '
         Me.DsT.Enabled = False
-        Me.DsT.Location = New System.Drawing.Point(32, 62)
+        Me.DsT.Location = New System.Drawing.Point(32, 49)
         Me.DsT.Name = "DsT"
         Me.DsT.Size = New System.Drawing.Size(60, 20)
         Me.DsT.TabIndex = 5
@@ -858,7 +869,7 @@ Partial Class Doutput
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(3, 235)
+        Me.Label9.Location = New System.Drawing.Point(3, 184)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(123, 13)
         Me.Label9.TabIndex = 4
@@ -867,7 +878,7 @@ Partial Class Doutput
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(39, 176)
+        Me.Label8.Location = New System.Drawing.Point(39, 131)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(44, 13)
         Me.Label8.TabIndex = 3
@@ -876,7 +887,7 @@ Partial Class Doutput
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(39, 116)
+        Me.Label7.Location = New System.Drawing.Point(39, 81)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(48, 13)
         Me.Label7.TabIndex = 2
@@ -886,9 +897,9 @@ Partial Class Doutput
         '
         Me.PictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox3.Image = Global.ColdChamber.My.Resources.Resources.Runners
-        Me.PictureBox3.Location = New System.Drawing.Point(132, 219)
+        Me.PictureBox3.Location = New System.Drawing.Point(145, 164)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(204, 149)
+        Me.PictureBox3.Size = New System.Drawing.Size(186, 133)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 1
         Me.PictureBox3.TabStop = False
@@ -897,15 +908,16 @@ Partial Class Doutput
         '
         Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox2.Image = Global.ColdChamber.My.Resources.Resources.Runner
-        Me.PictureBox2.Location = New System.Drawing.Point(132, 25)
+        Me.PictureBox2.Location = New System.Drawing.Point(143, 25)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(204, 154)
+        Me.PictureBox2.Size = New System.Drawing.Size(186, 129)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Vwarn)
         Me.GroupBox3.Controls.Add(Me.VentW)
         Me.GroupBox3.Controls.Add(Me.Label50)
         Me.GroupBox3.Controls.Add(Me.OverGh)
@@ -931,10 +943,19 @@ Partial Class Doutput
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Location = New System.Drawing.Point(833, 208)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(370, 381)
+        Me.GroupBox3.Size = New System.Drawing.Size(370, 406)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Overflow Dimensions"
+        '
+        'Vwarn
+        '
+        Me.Vwarn.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Vwarn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Vwarn.Location = New System.Drawing.Point(175, 325)
+        Me.Vwarn.Name = "Vwarn"
+        Me.Vwarn.Size = New System.Drawing.Size(189, 69)
+        Me.Vwarn.TabIndex = 23
         '
         'VentW
         '
@@ -1037,7 +1058,7 @@ Partial Class Doutput
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Image = Global.ColdChamber.My.Resources.Resources.OverFlow
+        Me.PictureBox1.Image = Global.ColdChamber.My.Resources.Resources.OverFlowC
         Me.PictureBox1.Location = New System.Drawing.Point(178, 25)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(186, 146)
@@ -1170,9 +1191,9 @@ Partial Class Doutput
         '
         Me.Label52.Location = New System.Drawing.Point(6, 157)
         Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(100, 29)
+        Me.Label52.Size = New System.Drawing.Size(118, 29)
         Me.Label52.TabIndex = 8
-        Me.Label52.Text = "Min. Plunger Speed (m/sec.)"
+        Me.Label52.Text = "Min. Average Plunger Speed (m/sec.)"
         '
         'MaTT
         '
@@ -1426,6 +1447,8 @@ Partial Class Doutput
         '
         'GroupBox7
         '
+        Me.GroupBox7.Controls.Add(Me.PoroT)
+        Me.GroupBox7.Controls.Add(Me.Label55)
         Me.GroupBox7.Controls.Add(Me.TFmax)
         Me.GroupBox7.Controls.Add(Me.Label51)
         Me.GroupBox7.Location = New System.Drawing.Point(802, 13)
@@ -1433,7 +1456,23 @@ Partial Class Doutput
         Me.GroupBox7.Size = New System.Drawing.Size(206, 189)
         Me.GroupBox7.TabIndex = 7
         Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "Flow Parameters"
+        Me.GroupBox7.Text = "Other Parameters"
+        '
+        'PoroT
+        '
+        Me.PoroT.Enabled = False
+        Me.PoroT.Location = New System.Drawing.Point(84, 75)
+        Me.PoroT.Name = "PoroT"
+        Me.PoroT.Size = New System.Drawing.Size(100, 20)
+        Me.PoroT.TabIndex = 3
+        '
+        'Label55
+        '
+        Me.Label55.Location = New System.Drawing.Point(15, 69)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(71, 36)
+        Me.Label55.TabIndex = 2
+        Me.Label55.Text = "Max. Porosity %"
         '
         'TFmax
         '
@@ -1451,6 +1490,66 @@ Partial Class Doutput
         Me.Label51.TabIndex = 0
         Me.Label51.Text = "Max. Filling Time (Sec.)"
         '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.OSST)
+        Me.GroupBox8.Controls.Add(Me.GSST)
+        Me.GroupBox8.Controls.Add(Me.Label54)
+        Me.GroupBox8.Controls.Add(Me.Label53)
+        Me.GroupBox8.Controls.Add(Me.PictureBox7)
+        Me.GroupBox8.Location = New System.Drawing.Point(485, 525)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(342, 149)
+        Me.GroupBox8.TabIndex = 8
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Gate and Overflow Position"
+        '
+        'OSST
+        '
+        Me.OSST.Enabled = False
+        Me.OSST.Location = New System.Drawing.Point(39, 107)
+        Me.OSST.Name = "OSST"
+        Me.OSST.Size = New System.Drawing.Size(53, 20)
+        Me.OSST.TabIndex = 4
+        '
+        'GSST
+        '
+        Me.GSST.Enabled = False
+        Me.GSST.Location = New System.Drawing.Point(42, 48)
+        Me.GSST.Name = "GSST"
+        Me.GSST.Size = New System.Drawing.Size(50, 20)
+        Me.GSST.TabIndex = 3
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(53, 91)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(27, 13)
+        Me.Label54.TabIndex = 2
+        Me.Label54.Text = "OSS"
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(54, 34)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(26, 13)
+        Me.Label53.TabIndex = 1
+        Me.Label53.Text = "GSS"
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox7.Image = Global.ColdChamber.My.Resources.Resources.Position
+        Me.PictureBox7.Location = New System.Drawing.Point(145, 24)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(186, 113)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox7.TabIndex = 0
+        Me.PictureBox7.TabStop = False
+        '
         'Doutput
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1458,6 +1557,7 @@ Partial Class Doutput
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(1215, 682)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox8)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.ExExp)
@@ -1493,6 +1593,9 @@ Partial Class Doutput
         CType(Me.ShapePic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1628,4 +1731,13 @@ Partial Class Doutput
     Friend WithEvents Label51 As System.Windows.Forms.Label
     Friend WithEvents MPS As System.Windows.Forms.TextBox
     Friend WithEvents Label52 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
+    Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
+    Friend WithEvents OSST As System.Windows.Forms.TextBox
+    Friend WithEvents GSST As System.Windows.Forms.TextBox
+    Friend WithEvents Label54 As System.Windows.Forms.Label
+    Friend WithEvents Label53 As System.Windows.Forms.Label
+    Friend WithEvents Vwarn As Label
+    Friend WithEvents Label55 As Label
+    Friend WithEvents PoroT As TextBox
 End Class

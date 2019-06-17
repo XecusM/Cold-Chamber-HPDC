@@ -291,6 +291,10 @@
     ''' <remarks></remarks>
     Public Gv As Decimal
     ''' <summary>
+    ''' Overflow Gate Area
+    ''' </summary>
+    Public Av As Decimal
+    ''' <summary>
     ''' Help Parameter
     ''' </summary>
     ''' <remarks></remarks>
@@ -337,6 +341,30 @@
     ''' </summary>
     ''' <remarks></remarks>
     Public m As Integer
+    ''' <summary>
+    ''' Helpful parameter
+    ''' </summary>
+    Public f1 As Decimal
+    ''' <summary>
+    ''' Helpful parameter
+    ''' </summary>
+    Public f2 As Decimal
+    ''' <summary>
+    ''' Gate Shift Scale
+    ''' </summary>
+    Public GSS As Decimal
+    ''' <summary>
+    ''' Overflow Shift Scale
+    ''' </summary>
+    Public OSS As Decimal
+    ''' <summary>
+    ''' Optimization Array
+    ''' </summary>
+    Public OPS(2, 3) As Decimal
+    ''' <summary>
+    ''' Objective Function
+    ''' </summary>
+    Public fn As Decimal
     Public Sub Parallelogram_Calc()
         vol = (W * L * H) - ((W - 2 * T) * (L - 2 * T) * (H - T))
         AreaProj = W * L
@@ -472,50 +500,56 @@
                 End If
             End If
         End If
-        Wv = W * 0.8
-        Gv = Wv - 4.5
+    End Sub
+    Public Sub Intial_Cond()
+        Call S_Set()
+        Vgate = 1500 * 25.4 / 1000
+        K = 0.0346
+        Z = 4.8
+        'Ti = 650
+        'Td = 280
+        Tf = 570
+        Cd(1) = 0.45
+        Cd(2) = 0.5
+        'Pm = 800 * (10 ^ 5) / ((10 ^ 6) * 1000)
+        OA = 2
+        OB = 5
+        OC = 0.6
+        OV = 0.15
+        Tg(1) = 0.8
+        Tg(2) = 3
+        pd = 2.76
+        Df = 35
+        Bg = 1.5
+        Call volfl_set()
+    End Sub
+    Public Sub Gate_Area()
+        Agate = (vol + volfl) / ((Vgate * 1000) * tfill)
+        Hg = Math.Max(0.8, 750 / ((Vgate ^ 1.71) * (pd * (1000))))
+        Wgate = Agate / Hg
+        Do Until (Vgate ^ 1.71) * Hg * (pd * (1000)) >= 750 And Hg >= 0.8 And Wgate < 0.95 * W
+            If Wgate >= 0.95 * W Then
+                Hg += 0.1
+                Wgate = Agate / Hg
+            Else
+                Hg -= 0.1
+                Wgate = Agate / Hg
+            End If
+        Loop
+        Av = (Agate * volfl) / (vol + volfl)
+        Gv = Math.Min(Av / OC, W - 4.5)
+        OC = Av / Gv
+        Do Until Gv < W
+            OC += 0.1
+            Gv = Av / OC
+        Loop
+        Wv = Gv + 4.5
         Hv = 2
         Lv = (volfl / (Wv * Hv)) + 0.5 * Hv * Iv
         Iv = Math.Tan(60 * Math.PI / 180)
         Do Until Hv / Lv > 0.25
             Hv += 0.1
             Lv = (volfl / (Wv * Hv)) + 0.5 * Hv * Iv
-        Loop
-    End Sub
-    Public Sub Intial_Cond()
-        Call S_Set()
-        Call volfl_set()
-        Vgate = 1500 * 25.4 / 1000
-        K = 0.0346
-        Z = 4.8
-        Tf = 570
-        Td = 280
-        Ti = 650
-        Cd(1) = 0.45
-        Cd(2) = 0.5
-        'Pm = 800 * (10 ^ 5) / ((10 ^ 6) * 1000)
-        OA = 1.5
-        OB = 7.8
-        OC = 1.25
-        OV = 0.5
-        Tg(1) = 0.8
-        Tg(2) = 3
-        pd = 2.76
-        Df = 35
-        Bg = 1.5
-    End Sub
-    Public Sub Gate_Area()
-        Agate = (vol + volfl) / ((Vgate * 1000) * tfill)
-        Wgate = W / 2
-        Hg = Agate / Wgate
-        Do Until (Vgate ^ 1.71) * Hg * (pd * (1000)) >= 750 And Hg >= 0.8 And Hg < Wgate
-            If Wgate >= W Or Hg > Wgate Then
-                Hg -= 0.1
-                Wgate = Agate / Hg
-            Else
-                Hg += 0.1
-                Wgate = Agate / Hg
-            End If
         Loop
         Call Runner_Area()
     End Sub
@@ -530,9 +564,10 @@
                 Exit Sub
             End If
         End If
-        Hr = (Ar / 2) ^ 0.5
+        'Hr = (Ar / 2) ^ 0.5
+        Hr = Hg + 1
         Wr = Ar / Hr
-        Do Until Wr <= Hr * 3 And Wr >= Hr And Hr > Hg
+        Do Until Wr <= Hr * 3 And Wr >= Hr And Wr < Wgate
             Hr += 0.1
             Wr = Ar / Hr
         Loop
@@ -572,7 +607,32 @@
         Ll(5) = Math.Round(Ll(4) + Lg / 9, 2)
         Ll(6) = Math.Round(Ll(5) + Lg / 9, 2)
         Ll(7) = Math.Round(Ll(6) + Lg / 9, 2)
-
+        Call Optimization_Technique()
+    End Sub
+    Public Sub Optimization_Technique()
+        GSS = 1
+        OSS = 1
+        OPS(1, 1) = 5.75 - 0.00009 * W - 0.00953 * L - 0.0195 * H + 0.208 * T - 0.1313 * A - 0.327 * GSS - 0.456 * OSS - 0.000012 * W * W + 0.000017 * L * L + 0.000106 * H * H + 0.2283 * T * T + 0.000946 * A * A - 0.0934 * GSS * GSS + 0.1598 * OSS * OSS + 0.000028 * W * L - 0.000068 * W * H + 0.00177 * W * T + 0.000031 * W * A - 0.00003 * W * GSS + 0.00008 * W * OSS + 0.000058 * L * H - 0.002092 * L * T - 0.000031 * L * A + 0.00077 * L * GSS + 0.00072 * L * OSS - 0.00148 * H * T + 0.000064 * H * A + 0.00179 * H * GSS + 0.00015 * H * OSS + 0.00053 * T * A + 0.002 * T * GSS + 0.0191 * T * OSS + 0.00136 * A * GSS + 0.00419 * A * OSS + 0.012 * GSS * OSS
+        OPS(1, 2) = GSS
+        OPS(1, 3) = OSS
+        OSS = OSS - 0.01
+        Do Until GSS <= -1
+            Do Until OSS <= -1
+                OPS(2, 1) = 5.75 - 0.00009 * W - 0.00953 * L - 0.0195 * H + 0.208 * T - 0.1313 * A - 0.327 * GSS - 0.456 * OSS - 0.000012 * W * W + 0.000017 * L * L + 0.000106 * H * H + 0.2283 * T * T + 0.000946 * A * A - 0.0934 * GSS * GSS + 0.1598 * OSS * OSS + 0.000028 * W * L - 0.000068 * W * H + 0.00177 * W * T + 0.000031 * W * A - 0.00003 * W * GSS + 0.00008 * W * OSS + 0.000058 * L * H - 0.002092 * L * T - 0.000031 * L * A + 0.00077 * L * GSS + 0.00072 * L * OSS - 0.00148 * H * T + 0.000064 * H * A + 0.00179 * H * GSS + 0.00015 * H * OSS + 0.00053 * T * A + 0.002 * T * GSS + 0.0191 * T * OSS + 0.00136 * A * GSS + 0.00419 * A * OSS + 0.012 * GSS * OSS
+                OPS(2, 2) = GSS
+                OPS(2, 3) = OSS
+                If OPS(2, 1) <= OPS(1, 1) Then
+                    OPS(1, 1) = OPS(2, 1)
+                    OPS(1, 2) = OPS(2, 2)
+                    OPS(1, 3) = OPS(2, 3)
+                End If
+                OSS = OSS - 0.01
+            Loop
+            GSS = GSS - 0.01
+        Loop
+        GSS = OPS(1, 2)
+        OSS = OPS(1, 3)
+        fn = OPS(1, 1)
     End Sub
     Public Sub Gate_go()
         MsgBox("Error!")

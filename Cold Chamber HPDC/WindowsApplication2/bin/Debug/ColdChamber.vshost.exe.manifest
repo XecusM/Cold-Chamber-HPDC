@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ColdChamber.exe" size="604160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ColdChamber.exe" size="701952">
       <assemblyIdentity name="ColdChamber" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>M+pizwWYMFPgh6Oi8ymCcLr9r5icGipe2LtYncC9v+w=</dsig:DigestValue>
+        <dsig:DigestValue>M+SvjqajLatVVaVaMsVt7ugbb95T0t6CqgK1p5rckrE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,22 +62,22 @@
       <dsig:DigestValue>5A+3ty5k/BlN6+uD2ZBco+8YJmJmadx8+QzArKgtPuw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ColdChamber.pdb" size="91648">
+  <file name="ColdChamber.pdb" size="93696">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>1Zj5LnGh+3YrfH2wUQiUFU1sLfVZ660xeDTo5+a0F6M=</dsig:DigestValue>
+      <dsig:DigestValue>uO65F+iXGnBWOHv8P8VrFInCzUk6e4QQVYTJFPCViUo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ColdChamber.xml" size="10582">
+  <file name="ColdChamber.xml" size="11578">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>mMMEUqC8jTcN98IGk1NqeH10JeeOGO64ZXxoXjz0BfA=</dsig:DigestValue>
+      <dsig:DigestValue>IUw1L+6s9j0P291V0gjhNs6IADG9faSA9/rEDT2qSXU=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

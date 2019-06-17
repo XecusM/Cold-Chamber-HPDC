@@ -118,37 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Gate2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gate2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Arc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Arc.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Parallelogram" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Parallelogram.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OverFlow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OverFlow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Hexagonal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hexagonal.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Cylinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cylinder.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Gate1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gate1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Gate2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gate2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Gate3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gate3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OverFlow1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OverFlow1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Parallelogram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Parallelogram.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Runner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Runner.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OverFlow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OverFlow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cylinder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cylinder.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Position" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Position.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverFlow1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OverFlow1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gate3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gate3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Runners" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Runners.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gate1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gate1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverFlowC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OverFlowC.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

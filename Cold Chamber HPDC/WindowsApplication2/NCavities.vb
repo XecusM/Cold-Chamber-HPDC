@@ -1,8 +1,5 @@
 ﻿Public Class NCavities
 
-    Private Sub NCavities_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 
     Private Sub PD3_CheckedChanged(sender As Object, e As EventArgs) Handles PD3.CheckedChanged
         N = Nmax(3)
@@ -16,13 +13,7 @@
         Nst.SelectedIndex = 0
     End Sub
 
-    Private Sub PD3T_TextChanged(sender As Object, e As EventArgs) Handles PDT3.TextChanged
 
-    End Sub
-
-    Private Sub PDT2_TextChanged(sender As Object, e As EventArgs) Handles PDT2.TextChanged
-
-    End Sub
 
     Private Sub PD2_CheckedChanged(sender As Object, e As EventArgs) Handles PD2.CheckedChanged
         N = Nmax(2)
@@ -48,9 +39,7 @@
         Nst.SelectedIndex = 0
     End Sub
 
-    Private Sub PDT1_TextChanged(sender As Object, e As EventArgs) Handles PDT1.TextChanged
 
-    End Sub
 
     Private Sub Back_Click(sender As Object, e As EventArgs) Handles Back.Click
         Me.Hide()
@@ -59,6 +48,7 @@
     End Sub
 
     Private Sub NNext_Click(sender As Object, e As EventArgs) Handles NNext.Click
+        Doutput.Vwarn.Text = ""
         Nsel = Nst.Text
         Me.Hide()
         Nst.Text = ""
@@ -71,7 +61,7 @@
             Case Else
                 Doutput.OverA.Text = OA
                 Doutput.OverB.Text = OB
-                Doutput.OverC.Text = OC
+                Doutput.OverC.Text = Math.Round(OC, 2)
                 Doutput.OverW.Text = Math.Round(Wv, 2)
                 Doutput.OverL.Text = Math.Round(Lv, 2)
                 Doutput.OverH.Text = Math.Round(Hv, 2)
@@ -115,7 +105,7 @@
         Doutput.HL7T.Text = Math.Round(Hl(7), 2)
         Doutput.HL8T.Text = Math.Round(Hl(8), 2)
         Doutput.MoTT.Text = Td
-        Doutput.MaTT.Text = Tf
+        Doutput.MaTT.Text = Ti
         Doutput.BgT.Text = Bg
         Doutput.VentV.Text = Math.Round(Agate / 4, 2)
         If Wv >= Doutput.VentV.Text / OV Then
@@ -125,8 +115,14 @@
         End If
         Doutput.TFmax.Text = tfill
         Doutput.MPS.Text = Math.Round((((vol + volfl) * 1.2 * Nsel) / ((Pdsel ^ 2) * Math.PI)) / (1000 * tfill), 2)
+        f1 = Doutput.VentW.Text
+        If Agate / 4 > (OV * f1) Then
+            Doutput.Vwarn.Text = "Need to add a " & Math.Round(((Agate / 4) - (OV * f1)), 2) & "mm2 venting area with the same thickness"
+        End If
+        Doutput.GSST.Text = GSS
+        Doutput.OSST.Text = OSS
+        Doutput.PoroT.Text = fn
         Doutput.ShowDialog()
-        Nst.Items.RemoveAt(0)
         Me.Close()
     End Sub
 End Class

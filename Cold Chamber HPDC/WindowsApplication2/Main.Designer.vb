@@ -63,17 +63,23 @@ Partial Class Main
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.MoTemp = New System.Windows.Forms.ComboBox()
+        Me.MeTemp = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ShapePic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(13, 83)
+        Me.Label1.Location = New System.Drawing.Point(13, 42)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(98, 16)
         Me.Label1.TabIndex = 0
@@ -410,7 +416,7 @@ Partial Class Main
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Location = New System.Drawing.Point(32, 26)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(262, 215)
+        Me.GroupBox3.Size = New System.Drawing.Size(262, 125)
         Me.GroupBox3.TabIndex = 16
         Me.GroupBox3.TabStop = False
         '
@@ -418,7 +424,7 @@ Partial Class Main
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(117, 176)
+        Me.Label15.Location = New System.Drawing.Point(117, 97)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(69, 16)
         Me.Label15.TabIndex = 7
@@ -428,7 +434,7 @@ Partial Class Main
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(101, 129)
+        Me.Label9.Location = New System.Drawing.Point(101, 71)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(135, 16)
         Me.Label9.TabIndex = 6
@@ -438,7 +444,7 @@ Partial Class Main
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(110, 83)
+        Me.Label8.Location = New System.Drawing.Point(110, 42)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(79, 16)
         Me.Label8.TabIndex = 5
@@ -448,7 +454,7 @@ Partial Class Main
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(132, 34)
+        Me.Label7.Location = New System.Drawing.Point(132, 13)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(124, 16)
         Me.Label7.TabIndex = 4
@@ -458,7 +464,7 @@ Partial Class Main
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(13, 176)
+        Me.Label6.Location = New System.Drawing.Point(13, 97)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(98, 16)
         Me.Label6.TabIndex = 3
@@ -468,7 +474,7 @@ Partial Class Main
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(13, 128)
+        Me.Label5.Location = New System.Drawing.Point(13, 70)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(90, 16)
         Me.Label5.TabIndex = 2
@@ -478,11 +484,62 @@ Partial Class Main
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(13, 34)
+        Me.Label4.Location = New System.Drawing.Point(13, 13)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(120, 16)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Die Casting Type:"
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.MeTemp)
+        Me.GroupBox4.Controls.Add(Me.MoTemp)
+        Me.GroupBox4.Controls.Add(Me.Label17)
+        Me.GroupBox4.Controls.Add(Me.Label16)
+        Me.GroupBox4.Location = New System.Drawing.Point(32, 158)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(262, 83)
+        Me.GroupBox4.TabIndex = 17
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Temperatures"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(13, 31)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(98, 13)
+        Me.Label16.TabIndex = 0
+        Me.Label16.Text = "Mold Temperature:"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(13, 59)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(102, 13)
+        Me.Label17.TabIndex = 1
+        Me.Label17.Text = "Metal Temperature:"
+        '
+        'MoTemp
+        '
+        Me.MoTemp.FormattingEnabled = True
+        Me.MoTemp.Items.AddRange(New Object() {"180", "190", "200", "220", "250", "280", "320"})
+        Me.MoTemp.Location = New System.Drawing.Point(121, 28)
+        Me.MoTemp.Name = "MoTemp"
+        Me.MoTemp.Size = New System.Drawing.Size(121, 21)
+        Me.MoTemp.TabIndex = 2
+        Me.MoTemp.Text = "Select Temperature"
+        '
+        'MeTemp
+        '
+        Me.MeTemp.FormattingEnabled = True
+        Me.MeTemp.Items.AddRange(New Object() {"600", "650", "700", "730"})
+        Me.MeTemp.Location = New System.Drawing.Point(120, 55)
+        Me.MeTemp.Name = "MeTemp"
+        Me.MeTemp.Size = New System.Drawing.Size(121, 21)
+        Me.MeTemp.TabIndex = 3
+        Me.MeTemp.Text = "Select Temperature"
         '
         'Main
         '
@@ -490,6 +547,7 @@ Partial Class Main
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.ClientSize = New System.Drawing.Size(934, 376)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.ShapePic)
         Me.Controls.Add(Me.AbButton)
@@ -509,6 +567,8 @@ Partial Class Main
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -553,5 +613,9 @@ Partial Class Main
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents MeTemp As ComboBox
+    Friend WithEvents MoTemp As ComboBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label16 As Label
 End Class
